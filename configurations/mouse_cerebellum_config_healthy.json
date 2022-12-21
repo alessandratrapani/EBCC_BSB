@@ -476,7 +476,7 @@
     "DCN_update": {
       "simulator": "nest",
       "resolution": 0.1,
-      "duration": 101000,
+      "duration": 10100,
       "modules": ["cerebmodule"],
       "default_neuron_model": "eglif_cond_alpha_multisyn",
       "default_synapse_model": "static_synapse",
@@ -1199,7 +1199,7 @@
           "parameters": {
             "rate": 0.0,
             "start": 0.0,
-            "stop": 21000.0
+            "stop": 2100.0
           }
         },
         "CS": {
@@ -1214,7 +1214,7 @@
             "burst_dur": 280,
             "rate": 40,
             "between_start": 1000,
-            "n_trials": 101
+            "n_trials": 11
           },
           "connection": {
             "rule": "one_to_one"
@@ -1231,7 +1231,7 @@
             "burst_dur": 30,
             "rate": 500,
             "between_start": 1000,
-            "n_trials": 100
+            "n_trials": 10
           },
         "connection": {"rule": "all_to_all"},
         "synapse": {"model": "static_synapse", "weight": 10.0, "delay": 1.0, "receptor_type": 1}

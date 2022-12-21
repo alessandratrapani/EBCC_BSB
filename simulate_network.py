@@ -14,8 +14,9 @@ import os
 import mf_cylinder_targeting
 
 set_verbosity(3)
-network_file = "balanced_DCN_IO.hdf5" #Change network file
-nest_config = JSONConfig("mouse_cerebellum_config_healthy.json") #Change configuration file (e. g. for different impairments)
+print("Simulating network")
+network_file = "scaffolds/standard_300x_200z.hdf5" #Change network filE "balanced_DCN_IO.hdf5"
+nest_config = JSONConfig("configurations/mouse_cerebellum_config_healthy.json") #Change configuration file (e. g. for different impairments)
 HDF5Formatter.reconfigure(network_file, nest_config)
 network_scaffold = from_hdf5(network_file)
 
