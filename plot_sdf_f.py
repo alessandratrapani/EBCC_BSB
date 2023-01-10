@@ -26,7 +26,7 @@ def plot_sdf(file, cell):
     else:
         clr = 'blue'
 
-    for j in selected_trials:
+    for j in selected_trials[:-1]:
         sdf = sc.sdf_mean(file, cell, j)
         plt.figure(file+' {} SDF'.format(cell.upper()))
         plt.title('{} SDF'.format(cell.upper()))
@@ -38,7 +38,7 @@ def plot_sdf(file, cell):
         gc=rgb_range[1][1]-(j/(max(selected_trials)*4/3))*(rgb_range[1][1]-rgb_range[1][0])
         bc=rgb_range[2][1]-(j/(max(selected_trials)*4/3))*(rgb_range[2][1]-rgb_range[2][0])
         plt.setp(sdf_plot, color=[rc,gc,bc])
-        #plt.setp(sdf_plot, color=clr, alpha=0.1+0.007*j)
+        plt.setp(sdf_plot, color=clr, alpha=0.1+(0.7/len(selected_trials)*j))
         if j == selected_trials[-1]:
             sdf_baseline = np.mean(sc.sdf_baseline(file, cell))
             sdf_baseline = [[0, burst_dur], [sdf_baseline, sdf_baseline]]
@@ -47,8 +47,8 @@ def plot_sdf(file, cell):
             plt.xlabel("Time [ms]")
             plt.ylabel("SDF [Hz]")
         #plt.xlim([50,280])
-        plt.savefig(file+"_"+cell+"_SDF.svg")
-        plt.show()
+    plt.savefig(file+"_"+cell+"_SDF.svg")
+    plt.show()
 
 
 #Plot motor output curves in all trials
@@ -80,8 +80,8 @@ def plot_motor_output(file):
             cr_threshold = [[0, burst_dur-maf_step], [threshold, threshold]]
             plt.plot(cr_threshold[0], cr_threshold[1], color="cyan")
         #plt.xlim([33,181])
-        plt.savefig(file+"_motor_output_full.svg")
-        plt.show()
+    plt.savefig(file+"_motor_output_full.svg")
+    plt.show()
 
 
 #Plot CR incidence per 10-trial block.

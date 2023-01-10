@@ -17,7 +17,7 @@ burst_dur_us = all_data['simulations']['DCN_update']['devices']['US']['parameter
 burst_dur_cs = burst_dur- burst_dur_us
 trials_start = np.arange(first, last+between_start, between_start)
 
-selected_trials = np.linspace(1,100,100).astype(int) #Can specify trials to be analyzed
+selected_trials = np.linspace(1,10,10).astype(int) #Can specify trials to be analyzed
 
 maf_step = 100 #selected step for moving average filter when computing motor output from DCN SDF
 
